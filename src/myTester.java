@@ -31,6 +31,7 @@ public class myTester {
         RootedTree bfsTree = graph.bfs(node1);
         DataOutputStream outStream = new DataOutputStream(out);
         bfsTree.printByLayer(outStream);
+        bfsTree.preorderPrint(outStream);
     }
     public static void printGraph(DynamicGraph graph) {
         NodeLinkedList<GraphNode> nodes = graph.Nodes;

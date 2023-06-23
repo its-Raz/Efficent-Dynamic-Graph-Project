@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Queue.java" afterDir="false" />
+    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="finish print by layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DynamicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NodeLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NodeLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RootedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,8 +76,16 @@
       <workItem from="1686910149187" duration="9832000" />
       <workItem from="1686993563756" duration="12383000" />
       <workItem from="1687093139830" duration="7320000" />
-      <workItem from="1687530670183" duration="11854000" />
+      <workItem from="1687530670183" duration="13458000" />
     </task>
+    <task id="LOCAL-00001" summary="finish print by layer">
+      <created>1687543555549</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687543555549</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +101,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finish print by layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish print by layer" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
