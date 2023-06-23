@@ -1,17 +1,14 @@
-public abstract class Node {
-
-    private Node prev;
-    private Node next;
-
-
+public class Node <T> {
+    private T data;
+    private Node<T> prev;
+    private Node<T> next;
 
 
-    public Node(Node prev,Node next)
+
+    public Node(T data)
     {
-        if(prev!=null){ this.prev = prev;}
-        if(next!=null){this.next=next;}
+        this.data=data;
     }
-
 
     public Node getNext() {
         return next;
@@ -27,6 +24,10 @@ public abstract class Node {
 
     public void setPrev(Node prev) {
         this.prev = prev;
+    }
+
+    public T getData() {
+        return data;
     }
 
 

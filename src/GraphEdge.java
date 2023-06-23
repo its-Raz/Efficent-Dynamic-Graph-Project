@@ -1,23 +1,17 @@
-import java.util.HashMap;
 
-public class GraphEdge extends Node {
+
+public class GraphEdge  {
+    private Node<GraphEdge> listNode;
 private GraphNode src;
 private GraphNode dst;
 
-    public GraphEdge(GraphEdge prev,GraphEdge next,GraphNode src, GraphNode dst)
+    public GraphEdge(GraphNode src, GraphNode dst)
     {
-        super(prev,next);
         this.src=src;
         this.dst=dst;
     }
-public GraphEdge(GraphEdge prev,GraphNode src, GraphNode dst)
-{
-    this(prev,null,src,dst);
-}
-public GraphEdge(GraphNode src, GraphNode dst)
-{
-    this(null,null,src,dst);
-}
+
+
 
     public GraphNode getSrc() {
         return src;
@@ -29,7 +23,13 @@ public GraphEdge(GraphNode src, GraphNode dst)
         return this.dst;
     }
 
+    public Node<GraphEdge> getListNode() {
+        return listNode;
+    }
 
+    public void setListNode(Node<GraphEdge> listNode) {
+        this.listNode = listNode;
+    }
 
     @Override
     public boolean equals(Object obj) {

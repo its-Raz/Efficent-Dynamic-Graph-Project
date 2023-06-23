@@ -12,10 +12,10 @@ public class DynamicGraph {
 
     public GraphNode insertNode(int key)
     {
-        GraphNode newNode = new GraphNode(key,Nodes.getLast());
-
-        Nodes.insert(newNode);
-        return newNode;
+        GraphNode newGraphNode = new GraphNode(key);
+        Node<GraphNode> listNode = Nodes.insert(newGraphNode);
+        newGraphNode.setListNode(listNode);
+        return newGraphNode;
 
     }
 
@@ -23,7 +23,7 @@ public class DynamicGraph {
     {
         if(node.getInDegree()==0 && node.getOutDegree()==0)
         {
-            this.Nodes.delete(node);
+            this.Nodes.delete(node.getListNode());
         }
         else{
         System.out.println("in/out degree are not 0");}
@@ -35,7 +35,8 @@ public class DynamicGraph {
         dst.increaseInDeg();
         NodeLinkedList<GraphEdge> srcNeighbors = src.getNeighborsList();
         GraphEdge newEdge = new GraphEdge(src,dst);
-        srcNeighbors.insert(newEdge);
+        Node<GraphEdge> listNode = srcNeighbors.insert(newEdge);
+        newEdge.setListNode(listNode);
         return newEdge;
     }
 
@@ -47,7 +48,7 @@ public class DynamicGraph {
         src.decreaseOutDeg();
         dst.decreaseInDeg();
         NodeLinkedList<GraphEdge> srcNeighbors = src.getNeighborsList();
-        srcNeighbors.delete(edge);
+        srcNeighbors.delete(edge.getListNode());
     }
 
     public RootedTree scc(){return new RootedTree();};
@@ -55,38 +56,49 @@ public class DynamicGraph {
     public RootedTree bfs(GraphNode source)
     {
         RootedTree bfsTree = new RootedTree();
-        bfsTree.setRoot(source);
+        NodeLinkedList<RootedTree> treeQueue = new NodeLinkedList<>();
+        NodeLinkedList<GraphNode> nodeQueue = new NodeLinkedList<>();
         bfsInit(source);
-        NodeLinkedList<RootedTree> queue = new NodeLinkedList<>();
-        queue.insert(bfsTree);
-        RootedTree currentSubTree = bfsTree;
-        GraphNode currentNode;
-        GraphNode currentNeighbor;
-        NodeLinkedList<GraphEdge> currNeighborsList;
-        GraphEdge currentEdge;
-        while(queue.getSize()!=0)
+
+        bfsTree.setRoot(source.getKey());
+
+
+        treeQueue.insert(bfsTree);
+        nodeQueue.insert(source);
+
+        RootedTree currentSubTree;
+        GraphNode currentGraphNode;
+        Node<GraphEdge> currentListEdge;
+        GraphNode currentGraphNeighbor;
+
+
+        while(nodeQueue.getSize()!=0)
         {
-            currentSubTree = queue.dequeue();
-            currentNode = currentSubTree.getRoot();
-            currNeighborsList = currentNode.getNeighborsList();
-            currentEdge = currNeighborsList.getLast();
-            while(currentEdge!=null)
+            currentSubTree = treeQueue.dequeue();
+            currentGraphNode = nodeQueue.dequeue();
+            currentListEdge=null;
+
+            if(currentGraphNode.getNeighborsList().getSize()!=0)
             {
-                currentNeighbor = currentEdge.getDst();
-
-                if(currentNeighbor.getColor() == Color.WHITE)
-                {
-                    RootedTree neighborSubTree = new RootedTree(currentSubTree,currentNeighbor, currentNeighbor.getKey());
-                    currentSubTree.addChild(neighborSubTree);
-                    currentNeighbor.setColor(Color.GRAY);
-//                    currentNeighbor.setDistance(currentNode.getDistance()+1);
-//                    currentNeighbor.setParent(currentNode);
-                    queue.insert(neighborSubTree);
-
-                }
-                currentEdge = (GraphEdge) currentEdge.getPrev();
+                currentListEdge = currentGraphNode.getNeighborsList().getLast().getListNode();
             }
-            currentNode.setColor(Color.BLACK);
+
+
+            while(currentListEdge!=null)
+            {
+
+                currentGraphNeighbor = currentListEdge.getData().getDst();
+                if(currentGraphNeighbor.getColor() == Color.WHITE)
+                {
+                    currentGraphNeighbor.setColor(Color.GRAY);
+                   RootedTree newTree = new RootedTree(currentSubTree,currentGraphNeighbor.getKey());
+                   newTree.setNodeList(currentSubTree.addChild(newTree));
+                   treeQueue.insert(newTree);
+                   nodeQueue.insert(currentGraphNeighbor);
+                }
+                currentListEdge = currentListEdge.getPrev();
+            }
+            currentGraphNode.setColor(Color.BLACK);
         }
         return bfsTree;
     };
@@ -94,17 +106,15 @@ public class DynamicGraph {
     public void bfsInit(GraphNode source)
     {
         NodeLinkedList<GraphEdge>  neighborsList = source.getNeighborsList();
-        GraphNode currentNode = neighborsList.getFirst().getDst();
+        Node<GraphNode> currentNode = neighborsList.getFirst().getDst().getListNode();
         while(currentNode!=null)
         {
-            currentNode.setDistance(Integer.MAX_VALUE);
-            currentNode.setColor(Color.WHITE);
-            currentNode.setParent(null);
+            currentNode.getData().setColor(Color.WHITE);
             currentNode = currentNode.getNext();
         }
-        source.setDistance(0);
+
         source.setColor(Color.GRAY);
-        source.setParent(null);
+
     }
 
 

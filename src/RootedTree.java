@@ -1,63 +1,78 @@
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.sql.SQLOutput;
 
-public class RootedTree extends Node {
+
+public class RootedTree {
     RootedTree parent;
-    GraphNode root;
     int rootKey;
     NodeLinkedList<RootedTree> children;
+    Node<RootedTree> nodeList;
 
-    public RootedTree()
-    {
-        super(null,null);
+    public RootedTree() {
+
         children = new NodeLinkedList<>();
     }
-    public RootedTree(RootedTree parent,GraphNode root,int key)
-    {
+
+    public RootedTree(RootedTree parent, int key) {
         this();
-        this.parent=parent;
-        this.root=root;
-        this.rootKey=key;
+        this.parent = parent;
+        this.rootKey = key;
     }
 
-    public GraphNode getRoot() {
-        return root;
-    }
-    public void addChild(RootedTree child)
-    {
-        this.children.insert(child);
+
+    public Node<RootedTree> addChild(RootedTree child) {
+        return children.insert(child);
     }
 
-    public void setRoot(GraphNode root) {
-        this.root = root;
-        this.rootKey = root.getKey();
+    public void setRoot(int rootKey) {
+        this.rootKey = rootKey;
     }
+
 
     public void printByLayer(DataOutputStream out) throws IOException {
-        pLayer(out,this);
-        out.close();
-    }
-    public void pLayer(DataOutputStream out,RootedTree tree) throws IOException
-    {
-        if(tree.getRoot().getKey()==5)
-        {
-            System.out.println("here");
-        }
-        out.writeBytes(tree.getRoot().getKey() + " ");
-        if(tree.children.getSize()!=0)
-        {
-            RootedTree currentChild = tree.children.getFirst();
-            while(currentChild!=null)
-            {
-                pLayer(out,currentChild);
-                currentChild = (RootedTree) currentChild.getNext();
+        NodeLinkedList<RootedTree> queue = new NodeLinkedList<>();
+        queue.insert(this);
+
+        while (queue.getSize() != 0) {
+            int size = queue.getSize();
+
+            // Process nodes at the current layer
+            for (int i = 0; i < size; i++) {
+                RootedTree current = queue.dequeue();
+                out.writeBytes(current.rootKey+"");
+                if(i!=(size-1))
+                {
+                    out.writeBytes(",");
+                }
+
+
+                // Enqueue the children for the next layer
+                if(current.getChildren().getSize()!=0){
+                Node<RootedTree> child = current.children.getFirst().getNodeList();
+                while (child != null) {
+                    queue.insert(child.getData());
+                    child = child.getNext();
+                }
+                }
             }
+            out.writeBytes("\n");;
         }
+        out.close();
+
+
+
 
     }
+    public void setNodeList (Node < RootedTree > nodeList) {
+        this.nodeList = nodeList;
+    }
+    public NodeLinkedList<RootedTree> getChildren () {
+        return this.children;
+    }
 
-    public void preorderPrint(DataOutputStream out){}
-
-
+    public Node<RootedTree> getNodeList() {
+        return nodeList;
+    }
 }
+
+

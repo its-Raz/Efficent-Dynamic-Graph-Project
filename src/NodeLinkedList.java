@@ -1,20 +1,19 @@
-public class NodeLinkedList<T extends Node> {
-    private T first;
-    private T last;
+public class NodeLinkedList<T> {
+    private Node<T> first;
+    private Node<T> last;
 
     private int size;
 
     public NodeLinkedList() {
+        this.first = null;
+        this.last = null;
         this.size = 0;
     }
 
-    /**
-     * adds a node to the end of the queue
-     * @param Node- the node to add
-     */
-    public void insert(T Node)
-    {
 
+    public Node<T> insert(T element)
+    {
+        Node<T> Node = new Node<T>(element);
         if(this.size == 0)
         {
             this.first = Node;
@@ -27,18 +26,25 @@ public class NodeLinkedList<T extends Node> {
             this.last=Node;
         }
         size++;
+        return Node;
     }
     public T dequeue()
     {
-        T dequeued = this.first;
+        if(size!=0)
+        {
+        T dequeued = this.first.getData();
         this.delete(this.first);
         return dequeued;
+        }
+        System.out.println("size is 0");
+        return null;
+
     }
     /**
      * removes the head and returns the data of the head
      * @return the data of the head
      */
-    public void delete(T Node)
+    public void delete(Node<T> Node)
     {
         if(this.size == 0){
             System.out.println("is empty");;
@@ -49,22 +55,21 @@ public class NodeLinkedList<T extends Node> {
                 first = null;
                 last = null;
             }
-            else if(Node.equals(this.first))
+            else if(Node.getData().equals(this.first.getData()))
             {
-                T next = (T)first.getNext();
+                Node<T> next = Node.getNext();
                 this.first = next;
                 next.setPrev(null);
-
             }
-            else if(Node.equals(this.last))
+            else if(Node.getData().equals(this.last.getData()))
             {
-                T prev = (T)last.getPrev();
+                Node<T> prev = Node.getPrev();
                 this.last = prev;
                 prev.setNext(null);
             }
              else {
-                T prev = (T) Node.getPrev();
-                T next = (T) Node.getNext();
+                Node<T> prev =  Node.getPrev();
+                Node<T> next =  Node.getNext();
                 prev.setNext(next);
                 next.setPrev(prev);
             }
@@ -75,20 +80,15 @@ public class NodeLinkedList<T extends Node> {
 
 
     public T getFirst() {
-        return first;
+        return first.getData();
     }
 
-    public void setFirst(T first) {
-        this.first = first;
-    }
+
 
     public T getLast() {
-        return last;
+        return last.getData();
     }
 
-    public void setLast(T last) {
-        this.last = last;
-    }
 
     public int getSize() {
         return size;

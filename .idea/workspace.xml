@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dds_wet_hw.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphEdge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NodeLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TreeGraphNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DynamicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NodeLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NodeLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RootedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,6 +83,7 @@
       <workItem from="1686910149187" duration="9832000" />
       <workItem from="1686993563756" duration="12383000" />
       <workItem from="1687093139830" duration="7320000" />
+      <workItem from="1687530670183" duration="11854000" />
     </task>
     <servers />
   </component>
@@ -108,17 +102,9 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/RootedTree.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Node" memberName="data" />
         <PinnedItemInfo parentTag="RootedTree" memberName="children" />
         <PinnedItemInfo parentTag="RootedTree" memberName="parent" />
       </pinned-members>
@@ -134,6 +120,7 @@
         <watch expression="bfsTree.children" />
         <watch expression="tree" />
         <watch expression="tree" />
+        <watch expression="bfsTree" />
       </configuration>
     </watches-manager>
   </component>

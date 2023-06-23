@@ -1,50 +1,28 @@
 
 
-public class GraphNode extends Node {
+public class GraphNode {
+    private Node<GraphNode> listNode;
     private int key;
     private int inDegree;
     private int outDegree;
     private NodeLinkedList<GraphEdge> neighborsList;
 
-    private GraphNode parent;
+
     private Color color;
 
-    private int distance;
 
-
-    public GraphNode(int key, GraphNode prev,GraphNode next) {
-        super(prev,next);
+    public GraphNode(int key) {
         this.key = key;
         this.inDegree = 0;
         this.outDegree = 0;
         this.neighborsList = new NodeLinkedList<GraphEdge>();
 
     }
-    public GraphNode(int key, GraphNode prev) {
-        this(key,prev,null);
-
-    }
-    public GraphNode(int key)
-    {
-        this(key,null,null);
-    }
 
 
-    public GraphNode getNext() {
-        return (GraphNode) super.getNext();
-    }
 
-    public void setNext(GraphNode next) {
-        super.setNext(next);
-    }
 
-    public GraphNode getPrev() {
-        return (GraphNode) super.getPrev();
-    }
 
-    public void setPrev(GraphNode prev) {
-        super.setPrev(prev);
-    }
 
     public int getOutDegree(){return this.outDegree;}
 
@@ -72,13 +50,8 @@ public class GraphNode extends Node {
         this.outDegree--;
     }
 
-    public GraphNode getParent() {
-        return parent;
-    }
 
-    public void setParent(GraphNode parent) {
-        this.parent = parent;
-    }
+
 
     public Color getColor() {
         return color;
@@ -88,12 +61,12 @@ public class GraphNode extends Node {
         this.color = color;
     }
 
-    public int getDistance() {
-        return distance;
+    public void setListNode(Node<GraphNode> node) {
+        this.listNode = node;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
+    public Node<GraphNode> getListNode() {
+        return listNode;
     }
 
     public NodeLinkedList<GraphEdge> getNeighborsList() {

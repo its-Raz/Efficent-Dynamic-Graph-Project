@@ -1,79 +1,56 @@
-
-import java.util.Arrays;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.Random;
 import static java.lang.System.out;
 public class myTester {
-    public static void main(String[] args) throws IOException {
-        DataOutputStream outStream = new DataOutputStream(out);
-
-
-        DynamicGraph graph = createGraph(); // Create a sample graph
-
-        GraphNode source = graph.Nodes.getFirst(); // Set the source node for BFS
-
-        RootedTree bfsTree = graph.bfs(source); // Perform BFS
-        bfsTree.printByLayer(outStream);
-
-
-
-//        // Print parent-child relationships
-//        System.out.println("Parent-Child Relationships:");
-//        printParentChildRelationships(graph.Nodes);
-    }
-
-    private static DynamicGraph createGraph() {
+    public static void main(String[] args) throws IOException{
+        // Create a new dynamic graph
         DynamicGraph graph = new DynamicGraph();
 
-        GraphNode node1 = graph.insertNode(1);
+        // Insert graph nodes
+        GraphNode node1 = graph.insertNode(7);
         GraphNode node2 = graph.insertNode(2);
-        GraphNode node3 = graph.insertNode(3);
-        GraphNode node4 = graph.insertNode(4);
-        GraphNode node5 = graph.insertNode(5);
+        GraphNode node3 = graph.insertNode(4);
+        GraphNode node4 = graph.insertNode(1);
+        GraphNode node5 = graph.insertNode(9);
+        GraphNode node6 = graph.insertNode(8);
+        GraphNode node7 = graph.insertNode(5);
+        GraphNode node8 = graph.insertNode(11);
 
+
+        // Insert graph edges
         graph.insertEdge(node1, node2);
         graph.insertEdge(node1, node3);
-        graph.insertEdge(node2, node4);
+        graph.insertEdge(node2, node7);
+        graph.insertEdge(node2, node8);
         graph.insertEdge(node3, node4);
+
+        graph.insertEdge(node4, node6);
         graph.insertEdge(node4, node5);
 
-        return graph;
+        // Perform BFS starting from node1
+        RootedTree bfsTree = graph.bfs(node1);
+        DataOutputStream outStream = new DataOutputStream(out);
+        bfsTree.printByLayer(outStream);
     }
+    public static void printGraph(DynamicGraph graph) {
+        NodeLinkedList<GraphNode> nodes = graph.Nodes;
+        Node<GraphNode> currNode = nodes.getFirst().getListNode();
 
-    private static void printTree(GraphNode root) {
-        if (root != null) {
-            printTreeRecursive(root, 0);
+        while (currNode != null) {
+            GraphNode node = currNode.getData();
+            System.out.println("Node: " + node.getKey());
+
+            NodeLinkedList<GraphEdge> neighbors = node.getNeighborsList();
+            if(neighbors.getSize()!=0){
+            Node<GraphEdge> currNeighbor = neighbors.getFirst().getListNode();
+            while (currNeighbor != null) {
+                GraphEdge edge = currNeighbor.getData();
+                System.out.println("Edge: " + edge.getSrc().getKey() + " -> " + edge.getDst().getKey());
+                currNeighbor = currNeighbor.getNext();
+            }
+
+        }
+            currNode = currNode.getNext();
         }
     }
-
-    private static void printTreeRecursive(GraphNode node, int depth) {
-        StringBuilder indentation = new StringBuilder();
-        for (int i = 0; i < depth; i++) {
-            indentation.append("  ");
-        }
-
-        System.out.println(indentation.toString() + node.getKey());
-
-        NodeLinkedList<GraphEdge> neighborsList = node.getNeighborsList();
-        GraphEdge edge = neighborsList.getFirst();
-
-        while (edge != null) {
-            printTreeRecursive(edge.getDst(), depth + 1);
-            edge = (GraphEdge) edge.getNext();
-        }
-    }
-
-    private static void printDistances(NodeLinkedList<GraphNode> nodeList) {
-        GraphNode node = nodeList.getFirst();
-
-        while (node != null) {
-            System.out.println("Node " + node.getKey() + ": Distance = " + node.getDistance());
-            node = node.getNext();
-        }
-    }
-
-
 }
-
-
