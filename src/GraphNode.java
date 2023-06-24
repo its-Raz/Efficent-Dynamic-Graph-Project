@@ -6,9 +6,11 @@ public class GraphNode {
     private int inDegree;
     private int outDegree;
     private NodeLinkedList<GraphEdge> neighborsList;
-
+    private NodeLinkedList<GraphEdge> neighborsListTranspose;
 
     private Color color;
+    private int disc;
+    private int ret;
 
 
     public GraphNode(int key) {
@@ -16,7 +18,7 @@ public class GraphNode {
         this.inDegree = 0;
         this.outDegree = 0;
         this.neighborsList = new NodeLinkedList<GraphEdge>();
-
+        this.neighborsListTranspose = new NodeLinkedList<GraphEdge>();
     }
 
 
@@ -71,6 +73,26 @@ public class GraphNode {
 
     public NodeLinkedList<GraphEdge> getNeighborsList() {
         return neighborsList;
+    }
+
+    public int getDisc() {
+        return disc;
+    }
+
+    public void setDisc(int disc) {
+        this.disc = disc;
+    }
+
+    public int getRet() {
+        return ret;
+    }
+
+    public void setRet(int ret) {
+        this.ret = ret;
+    }
+
+    public NodeLinkedList<GraphEdge> getNeighborsListTranspose() {
+        return neighborsListTranspose;
     }
 
     @Override

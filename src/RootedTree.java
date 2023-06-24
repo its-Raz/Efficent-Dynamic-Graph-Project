@@ -64,22 +64,26 @@ public class RootedTree {
 
     public void preorderPrint(DataOutputStream out) throws IOException{
         prePrint(out,this);
-        out.close();
+
     }
     public void prePrint(DataOutputStream out,RootedTree tree) throws IOException
     {
-        out.writeBytes(tree.rootKey + " ");
+        out.writeBytes(tree.rootKey + "");
 
         NodeLinkedList<RootedTree> childNodes = tree.children;
         if (childNodes.getSize()!=0) {
             Node<RootedTree> currentNode = childNodes.getFirst().getNodeList();
             while (currentNode != null) {
                 RootedTree currentTree = currentNode.getData();
+                out.writeBytes(",");
                 prePrint(out,currentTree);
                 currentNode = currentNode.getNext();
             }
         }
     }
+
+
+
     public void setNodeList (Node < RootedTree > nodeList) {
         this.nodeList = nodeList;
     }

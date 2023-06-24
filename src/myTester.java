@@ -7,14 +7,14 @@ public class myTester {
         DynamicGraph graph = new DynamicGraph();
 
         // Insert graph nodes
-        GraphNode node1 = graph.insertNode(7);
+        GraphNode node1 = graph.insertNode(1);
         GraphNode node2 = graph.insertNode(2);
-        GraphNode node3 = graph.insertNode(4);
-        GraphNode node4 = graph.insertNode(1);
-        GraphNode node5 = graph.insertNode(9);
-        GraphNode node6 = graph.insertNode(8);
-        GraphNode node7 = graph.insertNode(5);
-        GraphNode node8 = graph.insertNode(11);
+        GraphNode node3 = graph.insertNode(3);
+        GraphNode node4 = graph.insertNode(4);
+        GraphNode node5 = graph.insertNode(5);
+        GraphNode node6 = graph.insertNode(6);
+        GraphNode node7 = graph.insertNode(7);
+        GraphNode node8 = graph.insertNode(8);
 
 
         // Insert graph edges
