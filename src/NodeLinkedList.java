@@ -78,9 +78,24 @@ public class NodeLinkedList<T> {
 
     }
 
+    public void setFirst(Node<T> first) {
+        this.first = first;
+    }
+
+    public void setLast(Node<T> last) {
+        this.last = last;
+    }
 
     public T getFirst() {
         return first.getData();
+    }
+    public Node<T> getFirstNode()
+    {
+        return this.first;
+    }
+    public Node<T> getLastNode()
+    {
+        return this.last;
     }
 
 
@@ -92,5 +107,13 @@ public class NodeLinkedList<T> {
 
     public int getSize() {
         return size;
+    }
+    public void incSize()
+    {
+        this.size++;
+    }
+    public void decSize()
+    {
+        this.size--;
     }
 }

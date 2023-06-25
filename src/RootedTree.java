@@ -5,8 +5,10 @@ import java.io.IOException;
 public class RootedTree {
     RootedTree parent;
     int rootKey;
+    GraphNode root;
     NodeLinkedList<RootedTree> children;
     Node<RootedTree> nodeList;
+
 
     public RootedTree() {
 
@@ -18,11 +20,29 @@ public class RootedTree {
         this.parent = parent;
         this.rootKey = key;
     }
+    public RootedTree(RootedTree parent, int key,GraphNode root) {
+        this();
+        this.parent = parent;
+        this.rootKey = key;
+        this.root=root;
+    }
 
+    public GraphNode getRoot() {
+        return root;
+    }
+
+    public RootedTree getParent() {
+        return parent;
+    }
+
+    public int getRootKey() {
+        return rootKey;
+    }
 
     public Node<RootedTree> addChild(RootedTree child) {
         return children.insert(child);
     }
+    public void deleteChild(RootedTree child){this.children.delete(child.getNodeList());}
 
     public void setRoot(int rootKey) {
         this.rootKey = rootKey;

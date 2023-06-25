@@ -194,7 +194,7 @@ public class Test
     public static void testDynamicGraph(Random random) throws IOException
     {
 
-        FileOutputStream fileOutputStream = new FileOutputStream("output_2.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("output_3.txt");
         DataOutputStream outStream = new DataOutputStream(fileOutputStream);
         int[] uniqueKeysArray = createUniqueKeys(random);
         int uniqueKeysArrayIndex = 0;

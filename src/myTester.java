@@ -1,5 +1,7 @@
 import java.io.DataOutputStream;
 import java.io.IOException;
+
+
 import static java.lang.System.out;
 public class myTester {
     public static void main(String[] args) throws IOException{
@@ -7,31 +9,37 @@ public class myTester {
         DynamicGraph graph = new DynamicGraph();
 
         // Insert graph nodes
-        GraphNode node1 = graph.insertNode(1);
-        GraphNode node2 = graph.insertNode(2);
+
+
         GraphNode node3 = graph.insertNode(3);
-        GraphNode node4 = graph.insertNode(4);
-        GraphNode node5 = graph.insertNode(5);
-        GraphNode node6 = graph.insertNode(6);
-        GraphNode node7 = graph.insertNode(7);
-        GraphNode node8 = graph.insertNode(8);
+        GraphNode node2 = graph.insertNode(2);
+        GraphNode node1 = graph.insertNode(1);
+        GraphNode node4 = graph.insertNode(5);
+        GraphNode node5 = graph.insertNode(4);
+//        GraphNode node6 = graph.insertNode(6);
+//        GraphNode node7 = graph.insertNode(7);
+//        GraphNode node8 = graph.insertNode(8);
 
 
         // Insert graph edges
         graph.insertEdge(node1, node2);
-        graph.insertEdge(node1, node3);
-        graph.insertEdge(node2, node7);
-        graph.insertEdge(node2, node8);
-        graph.insertEdge(node3, node4);
-
-        graph.insertEdge(node4, node6);
+        graph.insertEdge(node2, node3);
+        graph.insertEdge(node3, node1);
         graph.insertEdge(node4, node5);
+        graph.insertEdge(node5, node4);
+
+
+
 
         // Perform BFS starting from node1
         RootedTree bfsTree = graph.bfs(node1);
-        DataOutputStream outStream = new DataOutputStream(out);
-        bfsTree.printByLayer(outStream);
-        bfsTree.preorderPrint(outStream);
+       DataOutputStream outStream = new DataOutputStream(out);
+//        bfsTree.printByLayer(outStream);
+//        bfsTree.preorderPrint(outStream);
+        RootedTree sccTree =  graph.scc();
+        out.println("");
+        sccTree.printByLayer(outStream);
+        outStream.close();
     }
     public static void printGraph(DynamicGraph graph) {
         NodeLinkedList<GraphNode> nodes = graph.Nodes;

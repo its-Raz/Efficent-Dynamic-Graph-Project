@@ -110,9 +110,9 @@ public class DynamicGraph {
     };
 
     public void bfsInit(GraphNode source) {
-        NodeLinkedList<GraphEdge> neighborsList = source.getNeighborsList();
-        if (neighborsList.getSize() != 0) {
-            Node<GraphNode> currentNode = neighborsList.getFirst().getDst().getListNode();
+        NodeLinkedList<GraphNode> nodes = this.Nodes;
+        if (nodes.getSize() != 0) {
+            Node<GraphNode> currentNode = nodes.getFirst().getListNode();
 
             while (currentNode != null) {
                 currentNode.getData().setColor(Color.WHITE);
@@ -127,87 +127,132 @@ public class DynamicGraph {
     }
     public RootedTree scc()
     {
-        RootedTree tree = new RootedTree(null,0);
-        NodeLinkedList<GraphNode> stack = new NodeLinkedList<>();
-        DFS(this.Nodes,tree,stack,Boolean.FALSE);
-        RootedTree tree_2 = new RootedTree(null,0);
-        NodeLinkedList<GraphNode> stack_2 = new NodeLinkedList<>();
-        DFS(stack,tree_2,stack_2,Boolean.TRUE);
-
-
-
-        return tree_2;
+        LinkedStack<GraphNode> fStack = new LinkedStack<>();
+        DFS(this.Nodes,fStack);
+        RootedTree tree = sccDFS(fStack);
+        return tree;
     }
-    public void DFS(NodeLinkedList<GraphNode> nodes,RootedTree tree,NodeLinkedList<GraphNode> stack,Boolean isSCC )
+    public void DFS(NodeLinkedList<GraphNode> nodes,LinkedStack<GraphNode> stack )
     {
-
-
-        Integer time = 0;
+        RootedTree virtualTree = new RootedTree();
+        int[] time = {0};
         Node<GraphNode> currentNode;
+
         if(nodes.getSize()!=0)
         {
             currentNode = nodes.getLast().getListNode();
+
             while(currentNode!=null)
             {
                 currentNode.getData().setColor(Color.WHITE);
                 currentNode = currentNode.getPrev();
             }
-            if(!isSCC){
-            currentNode = nodes.getLast().getListNode();}
-            else{
-                currentNode = nodes.dequeue().getListNode();
-            }
+
+            currentNode = nodes.getLast().getListNode();
+
+
             while(currentNode!=null)
             {
-                if(currentNode.getData().getColor() == Color.WHITE)
-                {
-                    RootedTree subTree = new RootedTree(tree,currentNode.getData().getKey());
-                    Node<RootedTree> nodeList = tree.addChild(subTree);
-                    subTree.setNodeList(nodeList);
-                    DFS_Visit(currentNode.getData(),stack,time,subTree);
-                }
-                if(!isSCC)
-                {
-                    currentNode = currentNode.getPrev();
-                }
-                else {
-                    if(nodes.getSize()!=0){
-                    currentNode = nodes.dequeue().getListNode();}
-                    else{currentNode=null;}
-                }
-            }
-        }
-
-    }
-    public void DFS_Visit(GraphNode vertex,NodeLinkedList<GraphNode> stack,Integer time,RootedTree tree)
-    {
-
-        time+=1;
-        vertex.setDisc(time);
-        vertex.setColor(Color.GRAY);
-        if(vertex.getNeighborsList().getSize()!=0)
-        {
-            Node<GraphNode> currentNode = vertex.getNeighborsList().getLast().getDst().getListNode();
-            while(currentNode!=null)
-            {
-                if(currentNode.getData().getColor() == Color.WHITE)
-                {
-                    RootedTree subTree = new RootedTree(tree,currentNode.getData().getKey());
-                    Node<RootedTree> nodeList = tree.addChild(subTree);
-                    subTree.setNodeList(nodeList);
-                    DFS_Visit(currentNode.getData(),stack,time,subTree);
+                if( currentNode.getData().getColor() == Color.WHITE )
+              {
+                    DFS_Visit(currentNode.getData(),stack,time,virtualTree,Boolean.FALSE);
                 }
                 currentNode = currentNode.getPrev();
+
             }
         }
+        }
+
+        public RootedTree sccDFS(LinkedStack<GraphNode> stack)
+        {
+            int[] time = {0};
+            Node<GraphNode> currentNode;
+            RootedTree tree = new RootedTree(null,0);
+            if(stack.getSize()!=0)
+            {
+                currentNode = stack.getLastNode();
+
+                while(currentNode!=null)
+                {
+                    currentNode.getData().setColor(Color.WHITE);
+                    currentNode = currentNode.getPrev();
+                }
+                currentNode = stack.pop().getListNode();
+                while(currentNode!=null)
+                {
+                    if( currentNode.getData().getColor() == Color.WHITE )
+                    {
+                    RootedTree subTree = new RootedTree(tree,currentNode.getData().getKey(),currentNode.getData());
+                    Node<RootedTree> nodeList = tree.addChild(subTree);
+                    subTree.setNodeList(nodeList);
+                        DFS_Visit(currentNode.getData(),stack,time,subTree,Boolean.TRUE);
+                    }
+                    if(stack.getSize()!=0){
+                    currentNode = stack.pop().getListNode();}
+                    else{currentNode=null;}
+
+                }
+        }
+        return tree;
+        }
+
+
+    public void DFS_Visit(GraphNode vertex,LinkedStack<GraphNode> stack,int[] time,RootedTree tree,Boolean isTranspose)
+    {
+
+        time[0]+=1;
+        vertex.setDisc(time[0]);
+        vertex.setColor(Color.GRAY);
+        Node<GraphNode> currentNode = null;
+        Node<GraphEdge> currentEdge = null;
+            if((!isTranspose) && vertex.getNeighborsList().getSize()!=0)
+            {
+            currentEdge = vertex.getNeighborsList().getLastNode();
+            currentNode = currentEdge.getData().getDst().getListNode();
+            }
+            if((isTranspose) && vertex.getNeighborsListTranspose().getSize()!=0)
+            {
+                currentEdge = vertex.getNeighborsListTranspose().getLastNode();
+                currentNode = currentEdge.getData().getDst().getListNode();
+            }
+
+            while(currentNode!=null)
+            {
+                if(currentNode.getData().getColor() == Color.WHITE)
+                {
+                    if(isTranspose  && currentNode.getData().getRet() > tree.getRoot().getRet())
+                    {
+
+                            RootedTree parent = tree.getParent();
+                            parent.deleteChild(tree);
+                            RootedTree subTree = new RootedTree(parent,currentNode.getData().getKey(),currentNode.getData());
+                            Node<RootedTree> nodeList = subTree.addChild(tree);
+                            tree.setNodeList(nodeList);
+                            nodeList = parent.addChild(subTree);
+                            subTree.setNodeList(nodeList);
+                            DFS_Visit(currentNode.getData(),stack,time,tree,isTranspose);
+
+                    }
+                    else
+                    {
+                    RootedTree subTree = new RootedTree(tree,currentNode.getData().getKey(),currentNode.getData());
+                    Node<RootedTree> nodeList = tree.addChild(subTree);
+                    subTree.setNodeList(nodeList);
+                    DFS_Visit(currentNode.getData(),stack,time,subTree,isTranspose);
+                    }
+                }
+                if(currentEdge.getPrev()!=null){
+                currentEdge = currentEdge.getPrev();
+                currentNode = currentEdge.getData().getDst().getListNode();
+                }
+                else{currentNode=null;}
+            }
+
         vertex.setColor(Color.BLACK);
-        time+=1;
-        vertex.setRet(time);
-        stack.insert(vertex);
+        time[0]+=1;
+        if(!isTranspose){
+        vertex.setRet(time[0]);}
+        stack.push(vertex);
     }
-
-
-
-
 
 }
