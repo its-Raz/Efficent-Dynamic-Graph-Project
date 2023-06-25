@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="finish scc with bugs">
-      <change afterPath="$PROJECT_DIR$/src/LinkedStack.java" afterDir="false" />
+    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DynamicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NodeLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NodeLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RootedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
@@ -90,7 +88,7 @@
       <workItem from="1687093139830" duration="7320000" />
       <workItem from="1687530670183" duration="13739000" />
       <workItem from="1687593383691" duration="10706000" />
-      <workItem from="1687687725224" duration="9919000" />
+      <workItem from="1687687725224" duration="14801000" />
     </task>
     <task id="LOCAL-00001" summary="finish print by layer">
       <created>1687543555549</created>
@@ -113,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687606583448</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1687698132232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687698132232</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,15 +139,16 @@
     <MESSAGE value="finish print by layer" />
     <MESSAGE value="finish preorder print" />
     <MESSAGE value="finish scc with bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish scc with bugs" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/DynamicGraph.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="20" />
+          <line>131</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -165,6 +171,7 @@
         <watch expression="tree" />
         <watch expression="bfsTree" />
         <watch expression="tree_2" />
+        <watch expression="fStack.first" />
       </configuration>
     </watches-manager>
   </component>

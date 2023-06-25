@@ -10,23 +10,33 @@ public class myTester {
 
         // Insert graph nodes
 
-
+        GraphNode node8 = graph.insertNode(8);
+        GraphNode node7 = graph.insertNode(7);
+        GraphNode node6 = graph.insertNode(6);
+        GraphNode node5 = graph.insertNode(5);
+        GraphNode node4 = graph.insertNode(4);
         GraphNode node3 = graph.insertNode(3);
+
         GraphNode node2 = graph.insertNode(2);
         GraphNode node1 = graph.insertNode(1);
-        GraphNode node4 = graph.insertNode(5);
-        GraphNode node5 = graph.insertNode(4);
-//        GraphNode node6 = graph.insertNode(6);
-//        GraphNode node7 = graph.insertNode(7);
-//        GraphNode node8 = graph.insertNode(8);
+
+
 
 
         // Insert graph edges
+        graph.insertEdge(node1, node3);
         graph.insertEdge(node1, node2);
         graph.insertEdge(node2, node3);
-        graph.insertEdge(node3, node1);
-        graph.insertEdge(node4, node5);
+        graph.insertEdge(node5,node1);
+        graph.insertEdge(node7, node1);
+        graph.insertEdge(node8, node6);
+        graph.insertEdge(node8, node5);
+        graph.insertEdge(node3, node4);
+        graph.insertEdge(node3, node5);
         graph.insertEdge(node5, node4);
+        graph.insertEdge(node6, node7);
+        graph.insertEdge(node6, node2);
+        graph.insertEdge(node7, node8);
 
 
 

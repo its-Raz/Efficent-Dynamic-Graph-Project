@@ -48,6 +48,9 @@ public class RootedTree {
         this.rootKey = rootKey;
     }
 
+    public void setParent(RootedTree parent) {
+        this.parent = parent;
+    }
 
     public void printByLayer(DataOutputStream out) throws IOException {
         NodeLinkedList<RootedTree> queue = new NodeLinkedList<>();
