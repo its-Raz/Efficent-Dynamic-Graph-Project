@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="update">
+    <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="WORKING">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DynamicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RootedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/razbi/Projects/dds_wet_hw&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.myTester">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="dds_wet_hw" />
@@ -65,8 +63,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.myTester" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.myTester" />
         <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
@@ -88,7 +86,8 @@
       <workItem from="1687093139830" duration="7320000" />
       <workItem from="1687530670183" duration="13739000" />
       <workItem from="1687593383691" duration="10706000" />
-      <workItem from="1687687725224" duration="14801000" />
+      <workItem from="1687687725224" duration="15455000" />
+      <workItem from="1687804575925" duration="1147000" />
     </task>
     <task id="LOCAL-00001" summary="finish print by layer">
       <created>1687543555549</created>
@@ -118,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687698132232</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update1">
+      <created>1687703804880</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687703804886</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,18 +146,11 @@
     <MESSAGE value="finish preorder print" />
     <MESSAGE value="finish scc with bugs" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update1" />
+    <MESSAGE value="WORKING" />
+    <option name="LAST_COMMIT_MESSAGE" value="WORKING" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DynamicGraph.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="RootedTree" memberName="children" />

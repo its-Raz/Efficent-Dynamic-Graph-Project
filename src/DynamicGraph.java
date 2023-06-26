@@ -222,35 +222,12 @@ public class DynamicGraph {
             {
                 if(currentNode.getData().getColor() == Color.WHITE)
                 {
-                    if(isTranspose  && currentNode.getData().getRet() > tree.getRoot().getRet())
-                    {
-                            RootedTree parent = tree.getParent();
-                            while(parent.getRoot().getRet() < currentNode.getData().getRet())
-                            {
-                                tree = parent;
-                                parent = parent.getParent();
-                            }
-                            try{
-                            parent.deleteChild(tree);}
-                            catch(Exception e){
-                                System.out.println("here");
-                            }
-                            RootedTree subTree = new RootedTree(parent,currentNode.getData().getKey(),currentNode.getData());
-                            Node<RootedTree> nodeList = subTree.addChild(tree);
-                            tree.setParent(subTree);
-                            tree.setNodeList(nodeList);
-                            nodeList = parent.addChild(subTree);
-                            subTree.setNodeList(nodeList);
-                            DFS_Visit(currentNode.getData(),stack,time,tree,isTranspose);
 
-                    }
-                    else
-                    {
                     RootedTree subTree = new RootedTree(tree,currentNode.getData().getKey(),currentNode.getData());
                     Node<RootedTree> nodeList = tree.addChild(subTree);
                     subTree.setNodeList(nodeList);
                     DFS_Visit(currentNode.getData(),stack,time,subTree,isTranspose);
-                    }
+
                 }
                 if(currentEdge.getPrev()!=null){
                 currentEdge = currentEdge.getPrev();
