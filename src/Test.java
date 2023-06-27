@@ -1,5 +1,4 @@
 import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
 import static java.lang.System.out;
@@ -193,9 +192,7 @@ public class Test
     }
     public static void testDynamicGraph(Random random) throws IOException
     {
-
-        FileOutputStream fileOutputStream = new FileOutputStream("output_5.txt");
-        DataOutputStream outStream = new DataOutputStream(fileOutputStream);
+        DataOutputStream outStream = new DataOutputStream(out);
         int[] uniqueKeysArray = createUniqueKeys(random);
         int uniqueKeysArrayIndex = 0;
 
@@ -324,7 +321,6 @@ public class Test
                 }
             }
         }
-
         outStream.close();
     }
 }

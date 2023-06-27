@@ -4,7 +4,11 @@
     <list default="true" id="66d5828f-6b9c-413a-a594-76fd6c028189" name="Changes" comment="WORKING">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DynamicGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DynamicGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RootedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RootedTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +91,10 @@
       <workItem from="1687530670183" duration="13739000" />
       <workItem from="1687593383691" duration="10706000" />
       <workItem from="1687687725224" duration="15455000" />
-      <workItem from="1687804575925" duration="1147000" />
+      <workItem from="1687804575925" duration="1289000" />
+      <workItem from="1687805891792" duration="2368000" />
+      <workItem from="1687809378676" duration="391000" />
+      <workItem from="1687848363159" duration="5447000" />
     </task>
     <task id="LOCAL-00001" summary="finish print by layer">
       <created>1687543555549</created>
@@ -124,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687703804886</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="WORKING">
+      <created>1687805747775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687805747775</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +185,9 @@
         <watch expression="bfsTree" />
         <watch expression="tree_2" />
         <watch expression="fStack.first" />
+        <watch expression="sccTree.children" />
+        <watch expression="sccTree.children" />
+        <watch expression="sccTree.children.first.next" />
       </configuration>
     </watches-manager>
   </component>

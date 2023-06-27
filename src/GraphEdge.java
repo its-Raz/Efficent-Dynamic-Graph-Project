@@ -5,6 +5,8 @@ public class GraphEdge  {
 private GraphNode src;
 private GraphNode dst;
 
+private GraphEdge transposeEdge;
+
     public GraphEdge(GraphNode src, GraphNode dst)
     {
         this.src=src;
@@ -29,6 +31,14 @@ private GraphNode dst;
 
     public void setListNode(Node<GraphEdge> listNode) {
         this.listNode = listNode;
+    }
+
+    public GraphEdge getTransposeEdge() {
+        return transposeEdge;
+    }
+
+    public void setTransposeEdge(GraphEdge transposeEdge) {
+        this.transposeEdge = transposeEdge;
     }
 
     @Override

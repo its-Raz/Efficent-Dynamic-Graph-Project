@@ -78,7 +78,8 @@ public class RootedTree {
                 }
                 }
             }
-            out.writeBytes("\n");;
+            if(queue.getSize()!=0){
+            out.writeBytes(System.lineSeparator());}
         }
 
 

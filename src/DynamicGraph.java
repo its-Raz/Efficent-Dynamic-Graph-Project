@@ -40,6 +40,7 @@ public class DynamicGraph {
 
         NodeLinkedList<GraphEdge> dstNeighbors = dst.getNeighborsListTranspose();
         GraphEdge newTranEdge = new GraphEdge(dst,src);
+        newEdge.setTransposeEdge(newTranEdge);
         Node<GraphEdge> listTranNode = dstNeighbors.insert(newTranEdge);
         newTranEdge.setListNode(listTranNode);
 
@@ -48,13 +49,19 @@ public class DynamicGraph {
 
     public void deleteEdge(GraphEdge edge)
     {
-
+        GraphEdge tranEdge = edge.getTransposeEdge();
         GraphNode src = edge.getSrc();
         GraphNode dst = edge.getDst();
         src.decreaseOutDeg();
         dst.decreaseInDeg();
         NodeLinkedList<GraphEdge> srcNeighbors = src.getNeighborsList();
         srcNeighbors.delete(edge.getListNode());
+
+        GraphNode tranS = tranEdge.getSrc();
+
+        NodeLinkedList<GraphEdge> dstTransNeighbors = tranS.getNeighborsListTranspose();
+        dstTransNeighbors.delete(tranEdge.getListNode());
+
     }
 
 
@@ -240,6 +247,7 @@ public class DynamicGraph {
         time[0]+=1;
         if(!isTranspose){
         vertex.setRet(time[0]);}
+
         stack.push(vertex);
     }
 

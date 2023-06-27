@@ -20,6 +20,7 @@ public class LinkedStack<T> extends NodeLinkedList<T>{
     }
     public T pop()
     {
+
         return super.dequeue();
     }
 
