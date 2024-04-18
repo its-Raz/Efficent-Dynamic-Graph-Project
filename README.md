@@ -8,10 +8,10 @@ In this project, I implemented an efficient dynamic graph from scratch. It inclu
 - Pre-order printing
 - Strongly Connected Components (SCC) algorithm
 - Breadth-First Search (BFS) algorithm
-- 
+
+This project is written in Java and covers key concepts of OOP programming such as inheritance, generics, and more. It also delves into fundamental concepts of data structures and algorithms, such as graph theory and efficient programming techniques.
 For the full specifications and running times of each method, please visit the corresponding section below.
-    
-    
+Also, if you are interested in using the code and want to test it, you can follow the instructions below.
 </p>
 
 
@@ -20,31 +20,22 @@ For the full specifications and running times of each method, please visit the c
 
 # Contents
 
-- [Overview](#overview)
-- [JobScraping](#JobScraping)
-- [Profiles Similarity - BM25 model](#Profiles-Similarity---BM25-model)
-- [Job Matching](#JobMatching)
-- [Word2Vec Similarity](#Word2Vec-Job-Similarity)
-- [Output Reccomended Open Jobs](#Output-Reccomended-Open-Jobs)
-- [([Project Report.pdf](https://github.com/its-Raz/The-Job-Advisor/blob/f197cdc85fad47573d7ed96f47640e9e2809c4fb/Project%20Report.pdf))]
+- [Test](#test)
+- [Full-Specifications](#Full-Specifications)
+
 
 # Overview
-
-
-
-**Job Advisor Overiew**
+**Overiew**
 
 1. Clone this repository and 
 
    ```bash
-   git clone https://github.com/its-Raz/The-Job-Advisor.git
+   git clone https://github.com/its-Raz/ds-algs.git
    
    ```
-2. verify you use python 3.8 or above and pip install the following:
-
-   ```bash
-   pip install playwright.async_api
-   pip install bs4
-   pip install pandas
-   pip install tkinter
-   ```   
+2. Run ```Test.java```
+3. Compare ```my_output.txt``` to ```test_output.txt```
+4. 
+# Full-Specifications
+**Full-Specifications**
+ [([ds_algs_specs.pdf]())]
