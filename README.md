@@ -38,4 +38,4 @@ Also, if you are interested in using the code and want to test it, you can follo
 4. 
 # Full-Specifications
 **Full-Specifications**
- [([ds_algs_specs.pdf]())]
+ [([ds_algs_specs.pdf](https://github.com/its-Raz/ds-algs/blob/master/ds_algs_spec.pdf))]
