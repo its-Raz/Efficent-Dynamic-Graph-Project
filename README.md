@@ -35,7 +35,6 @@ Also, if you are interested in using the code and want to test it, you can follo
    ```
 2. Run ```Test.java```
 3. Compare ```my_output.txt``` to ```test_output.txt```
-4. 
 # Full-Specifications
 **Full-Specifications**
  [([ds_algs_specs.pdf](https://github.com/its-Raz/ds-algs/blob/master/ds_algs_spec.pdf))]
